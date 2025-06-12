@@ -17,16 +17,20 @@ def load_data(nrows):
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
     data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
+    
     return data
 
 # Effortless caching
-data_load_state = st.text('Loading data... ')
+# data_load_state = st.text('Loading data... ')
 data = load_data(10000)
-data_load_state.text("Done! (using st.cache_data)")
+# data_load_state.text("Done! (using st.cache_data)")
 
 # Inspect data
-st.header('Raw data')
-st.write(data)
+# st.header('Raw data')
+# st.write(data)
+if st.checkbox('Show raw data'):
+    st.subheader('Raw data')
+    st.write(data)
 
 # Draw a histogram
 st.header("Number of pickups by hour")
@@ -35,10 +39,7 @@ st.bar_chart(hist_values)
 
 
 ## Plot data on a map
-# st.subheader('Map of all pickups')
-# st.map(data)
-
-hour_to_filter = 17
+hour_to_filter = st.slider('Hour', 0, 23, 17) 
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 st.subheader(f'Map of all pickups at {hour_to_filter}:00')
 st.map(filtered_data)
