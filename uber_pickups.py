@@ -21,13 +21,10 @@ def load_data(nrows):
     return data
 
 # Effortless caching
-# data_load_state = st.text('Loading data... ')
 data = load_data(10000)
-# data_load_state.text("Done! (using st.cache_data)")
+
 
 # Inspect data
-# st.header('Raw data')
-# st.write(data)
 if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)

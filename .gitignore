@@ -197,3 +197,4 @@ cython_debug/
 # /uber-raw-data-sep14.csv
 # /uber-raw-data-sep14_raw.csv
 # //uber-raw-data-sep14-10000.csv
+.DS_Store
