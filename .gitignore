@@ -195,3 +195,5 @@ cython_debug/
 
 # Data File
 /uber-raw-data-sep14.csv
+/uber-raw-data-sep14_raw.csv
+//uber-raw-data-sep14-10000.csv
